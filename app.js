@@ -2,10 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
 const _ = require("lodash");
+require("dotenv").config();
+const srvr = process.env.MONGO_KEY;
+const srvrCred = process.env.MONGO_PASSWORD;
 
 const app = express();
-
-const PASSWORD = "Cewsf7D9RucA7BBG";
 
 // const items = ["Buy Food", "Cook Food", "Eat Food"];
 // const workItems = [];
@@ -17,7 +18,7 @@ const mongoose = require("mongoose");
 // // Connect with localhost server
 // mongoose.connect("mongodb://localhost:27017/todolistDB");
 // Connect with mongo atlas
-mongoose.connect(`mongodb+srv://admin-kollavathc:${PASSWORD}@cluster0.erghe5x.mongodb.net/todolistDB`);
+mongoose.connect(`mongodb+srv://${srvr}:${srvrCred}@cluster0.erghe5x.mongodb.net/todolistDB`);
 console.log("Successfully connected");
 
 // Create Schema
